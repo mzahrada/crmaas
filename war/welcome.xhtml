@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+ 
+<f:view contentType="text/html">
+
+<h:head>
+	<title>GAE + JSF 2.1 + PrimeFaces</title>
+</h:head>
+<h:body bgcolor="white">
+	<h1>Google App Engine + JSF 2.1 + PrimeFaces - welcome.xhtml</h1>
+	<h4>Welcome #{helloBean.name}</h4>
+	<h:form>
+		<p:accordionPanel activeIndex="0" autoHeight="false">
+			<p:tab title="Menu 1">
+				<p:calendar mode="inline" close="false" navigator="none"/>
+			</p:tab>
+			
+			<p:tab title="Menu 2">
+				<h:outputText value="Menu 2 Content" />
+			</p:tab>
+			
+			<p:tab title="Menu 3">
+				<h:outputText value="Menu 3 Content" />
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+</h:body>
+
+</f:view>
+</html>

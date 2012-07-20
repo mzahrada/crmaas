@@ -1,0 +1,6 @@
+== SaaS CRM 
+Web application developed in Java EE. 
+
+Application will be running here: http://crmaas.appspot.com
+
+It is developed in Java EE. Runs on GAE (Google App Engine). It uses these frameworks JSF2.1, Primefaces, Guice and Twig.
