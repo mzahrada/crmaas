@@ -1,36 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
- 
-<f:view contentType="text/html">
-
-<h:head>
-	<title>GAE + JSF 2.1 + PrimeFaces</title>
-</h:head>
-<h:body bgcolor="white">
-	<h1>Google App Engine + JSF 2.1 + PrimeFaces - welcome.xhtml</h1>
-	<h4>Welcome #{helloBean.name}</h4>
-	<h:form>
-		<p:accordionPanel activeIndex="0" autoHeight="false">
-			<p:tab title="Menu 1">
-				<p:calendar mode="inline" close="false" navigator="none"/>
-			</p:tab>
-			
-			<p:tab title="Menu 2">
-				<h:outputText value="Menu 2 Content" />
-			</p:tab>
-			
-			<p:tab title="Menu 3">
-				<h:outputText value="Menu 3 Content" />
-			</p:tab>
-		</p:accordionPanel>
-	</h:form>
-</h:body>
-
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+       template="#{request.contextPath}/templates/template.xhtml">
+       
+	<ui:define name="content">
+		<h1>Person CRUD</h1>
+		<!-- <h:outputText value="#{helloBean.name}"></h:outputText> -->
+		
+		<h:form id="loginForm">
+			<p:panel header="Login">
+				<h:panelGrid columns="2" id="loginGrid">
+					<h:outputLabel for="uname" value="Username: *" />
+					<p:inputText id="uname" required="true" label="Username" value="#{login.username}" />
+					
+<!-- 					<h:outputLabel for="pwd" value="Password: *" />
+					<p:password id="pwd" required="true" label="Password" value="#{login.password}" /> -->
+				</h:panelGrid>
+				<p:commandButton id="loginButton" value="Login" action="#{login.doLogin}" ajax="false"/> 
+			</p:panel>
+		</h:form>
+		
+		<h:form>
+			<p:accordionPanel activeIndex="0" autoHeight="false">
+				<p:tab title="New Person">
+					<p:panel id="newPersonPanel" header="New Person">
+						
+						<p:growl id="growl" showDetail="true" />
+						
+						<h:panelGrid columns="3">
+							<h:outputLabel for="firstName" value="FirstName: *" />
+							<p:inputText id="firstName" value="#{person.firstName}" required="true" label="Firstname">
+								<f:validateLength minimum="3"/>
+							</p:inputText>
+							<p:message for="firstName"/>
+						</h:panelGrid>
+					</p:panel>
+					
+					<p:commandLink actionListener="#{person.savePerson}" update="growl, newPersonPanel, showPersonPanel, listPersonPanel">
+						<h:outputText value="Save Person"/>
+					</p:commandLink>
+				</p:tab>
+				
+				<p:tab title="Show person">
+					<p:panel id="showPersonPanel" header="Show Person">
+						<h:panelGrid columns="2">
+							<h:outputText value="FirstName: " />
+							<h:outputText value="#{person.firstName}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+				
+				<p:tab title="Person list">
+					<p:dataTable id="listPersonPanel" var="p" value="#{person.personList}">
+						<p:column>  
+				            <f:facet name="header">  
+				                    FirstName  
+				            </f:facet>  
+				            <h:outputText value="#{p.firstName}" />  
+				        </p:column>
+					</p:dataTable>
+				</p:tab> 
+			</p:accordionPanel>
+		</h:form>
+		
+	</ui:define>
+	
+</ui:composition>

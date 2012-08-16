@@ -8,5 +8,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.faces-2.1.10.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/shiro-core-1.2.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/shiro-web-1.2.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/primefaces-3.4-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

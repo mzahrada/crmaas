@@ -1,26 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
- 
-<f:view contentType="text/html">
-
-<h:head>
-	<title>GAE + JSF</title>
-</h:head>
-<h:body>
-	<h1>Google App Engine + JSF 2.0 example - hello.xhtml</h1>
-	<p:panel header="Login Form" style="width: 350;">
-		<h:form>
-			<h:inputText value="#{helloBean.name}"></h:inputText>
-			<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
-		</h:form>
-	</p:panel>
-</h:body>
-
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+       template="./templates/template.xhtml">
+       
+       	<ui:define name="content">
+       		<h1>Google App Engine + JSF 2.0 example - hello.xhtml</h1>
+			<p:panel header="Login Form" style="width: 350;">
+				<h:form>
+					<h:inputText value="#{helloBean.name}"></h:inputText>
+					<h:commandButton value="Welcome Me" action="welcome?faces-redirect=true"></h:commandButton>
+				</h:form>
+			</p:panel>
+		</ui:define>
+	
+</ui:composition>

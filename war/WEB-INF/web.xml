@@ -2,22 +2,27 @@
  
 	<display-name>SaaS CRM</display-name>
  
-	<!-- GAE 1.6.3 cannot handle server side (JSF default) state management. -->
-	<context-param>
-		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-		<param-value>server</param-value>	
-		<!-- <param-value>client</param-value>	 -->
-	</context-param>
-	
-	<!-- GAE Bug 1506 JSP 2.1 API but 2.0 Implementation -->  
-	<context-param>
-		<param-name>com.sun.faces.expressionFactory</param-name>
-		<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-	</context-param>
-	<context-param>
-		<param-name>com.sun.faces.enableThreading</param-name>
-		<param-value>false</param-value>
-	</context-param>
+				<!-- GAE 1.6.3 cannot handle server side (JSF default) state management. -->
+				<context-param>
+					<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+					<param-value>client</param-value>	
+					<!-- <param-value>client</param-value>	 -->
+				</context-param>
+				
+				<!-- GAE Bug 1506 JSP 2.1 API but 2.0 Implementation -->  
+				<context-param>
+					<param-name>com.sun.faces.expressionFactory</param-name>
+					<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+				</context-param>
+				<context-param>
+					<param-name>com.sun.faces.enableThreading</param-name>
+					<param-value>false</param-value>
+				</context-param>
+				
+			 	<context-param>
+				    <param-name>com.sun.faces.validateXml</param-name>
+				    <param-value>true</param-value>
+				</context-param> 
  
 	<!-- Change to "Production" when you are ready to deploy -->
 	<context-param>
@@ -31,11 +36,20 @@
 		<param-name>primefaces.skin</param-name>
 		<param-value>none</param-value>
 	</context-param>
- 
-	<!-- Welcome page -->
-	<welcome-file-list>
-		<welcome-file>faces/hello.xhtml</welcome-file>
-	</welcome-file-list>
+	
+	<!-- Pretty faces -->
+	<filter>
+	   <filter-name>PrettyFilter</filter-name>
+	   <filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	   <filter-name>PrettyFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	    <dispatcher>FORWARD</dispatcher>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>ERROR</dispatcher>
+	</filter-mapping>	
  
 	<!-- JSF mapping -->
 	<servlet>
@@ -49,17 +63,35 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
-	</servlet-mapping>
- 
+	
+	<context-param>
+	    <param-name>
+	        javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+	    </param-name>
+	    <param-value>true</param-value>
+	</context-param>
+	
+	<!-- Adding CDI Weld -->
+	<!-- <listener>
+	    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener> -->
+	
+<!-- 	<error-page>
+	    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+	    <location>/login.xhtml</location>
+	</error-page> -->
+	
+	 
+ <servlet>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+  <init-param>
+   <param-name>services</param-name>
+   <param-value/>
+  </init-param>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <url-pattern>/_ah/spi/*</url-pattern>
+ </servlet-mapping>
 </web-app>
