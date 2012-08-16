@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+		    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+		    <title>CRM as a Service</title>
+		</f:facet>
+		
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/app.css" />
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/image.css" />
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter.css" />
+		
+		<!-- <ui:insert name="head"></ui:insert> -->
+		<!-- Add Google Analytics!!  -->
+	</h:head>
+	
+	<h:body>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="95">
+				<div id="header" class="ui-widget ui-widget-header">	
+					logo, reminder, logged user, setup, logout
+				</div>
+			</p:layoutUnit>
+			<p:layoutUnit position="west" size="165">	<!-- size="180" for scrollerBar -->
+				<ui:include src="#{request.contextPath}/crm/userMenu.xhtml" />
+			</p:layoutUnit>
+			
+			<p:layoutUnit position="center">
+				<ui:insert name="content">[content]</ui:insert>
+			</p:layoutUnit>
+			
+			<p:layoutUnit position="south" size="60">
+				footer MZ, 2012
+			</p:layoutUnit>
+		</p:layout>			
+	</h:body>
+</f:view>
+</html>

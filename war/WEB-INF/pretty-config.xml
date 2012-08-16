@@ -1,0 +1,36 @@
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.3.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.0.xsd">
+
+<!-- 	<rewrite match="^/faces//aces/$" substitute="/$1/" redirect="301" />
+ -->	
+ 
+ 	<url-mapping id="home"> 
+	   <pattern value="/" /> 
+	   <view-id value="/faces/welcome.xhtml" />
+	</url-mapping> 
+ 
+	<url-mapping id="crm"> 
+	   <pattern value="/crm/" /> 
+	   <view-id value="/faces/crm/app.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="admin"> 
+	   <pattern value="/admin/" /> 
+	   <view-id value="/faces/admin/admin.xhtml" />
+	</url-mapping>
+	
+	<!--
+      <url-mapping id="viewCategory">
+          <pattern value="/store/#{ cat : bean.category }/" />
+          <view-id value="/faces/shop/store.jsf" />
+      </url-mapping>
+      
+      <url-mapping id="viewItem">
+          <pattern value="/store/#{ cat : bean.category }/#{ iid : bean.itemId }/" />
+          <view-id value="/faces/shop/item.jsf" /> 
+          <action>#{bean.loadItem}</action>
+      </url-mapping>
+	-->
+	
+</pretty-config>

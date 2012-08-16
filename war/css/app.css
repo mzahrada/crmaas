@@ -1,0 +1,91 @@
+body {
+        margin: 0px;
+        padding: 0;
+        font-size: 13px;
+        color: #616161;
+}
+
+h1, h2, h3 {
+        margin-top: 0;
+}
+
+h1 {
+        font-size: 1.6em;
+        font-weight: normal;
+}
+
+h2 {
+        font-size: 1.6em;
+}
+
+h3 {
+        font-size: 1em;
+        margin-top:20px;
+}
+
+ul {
+}
+
+a {
+        text-decoration: none;
+}
+
+a:hover {
+        text-decoration: underline;
+}
+
+a img {
+        border: none;
+}
+
+img.left {
+        float: left;
+        margin: 0 20px 0 0;
+}
+
+img.right {
+        float: right;
+        margin: 0 0 0 20px;
+}
+
+/* Header */
+#header {
+    padding: 4px 0px;
+    height: 75px;
+    position: relative;
+}
+
+#logo {
+    text-align: left;
+}
+
+/* Page */
+#page {
+        padding: 10px 0px;
+        background: #FFFFFF;
+}
+
+
+/* ------------- @Override("ui") -------------- */
+
+.ui-widget {
+    font-size: 1em !important;
+}
+/* .ui-panel { 
+	margin: 0.6em 0.3em
+} */
+
+/* .ui-layout-pane {
+    border: 0;
+} */
+/* .ui-layout-pane-north {
+    border: 1;
+} */
+.ui-layout-pane-west, .ui-layout-pane-center {
+    border: none;
+}
+.ui-layout-unit-north .ui-layout-bd {
+   border: 0;
+}
+
+

@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+       template="#{request.contextPath}/templates/appTemplate.xhtml">
+       
+	<ui:define name="content">
+		<p:growl id="growl" showDetail="true" />
+	
+		<p:dashboard id="dashboard" model="#{dashboard.model}">
+			<p:ajax event="reorder" listener="#{dashboard.handleReorder}" update="growl" />
+		
+			<p:panel id="links" header="links">
+				<h:outputText value="#{msg.contact}" />  
+			</p:panel>
+			<p:panel id="notes" header="notes" closable="true" closeSpeed="2000">
+	    			<p:ajax event="close" listener="#{dashboard.handleClose}" update="growl" />
+				<h:outputText value="#{msg.person}" />  
+			</p:panel>
+			<p:panel id="onlineUsers" header="onlineUsers">
+				<h:outputText value="onlineUsers" />  
+				<h:form id="localeForm" prependId="false">
+					<p:selectOneMenu value="#{locale.selectedLocale}">
+						<!-- <p:ajax event="change" listener="#{locale.handleLocaleChanged}" />  -->
+						<f:selectItems value="#{locale.locales}" />
+					</p:selectOneMenu>
+					<p:commandButton id="localeButton" value="Change" action="#{locale.handleLocaleChanged}" ajax="false"/> 
+				</h:form>
+			</p:panel>
+						
+			
+			<p:panel id="report" binding="#{dashboard.panel}">
+				<p:panel id="r1" binding="#{dashboard.r1}" />
+				<p:panel id="r2" binding="#{dashboard.r2}" />
+			</p:panel>
+			
+			<p:panel id="activities" header="activities" rendered="true">
+				<h:outputText value="activities" />  
+			</p:panel>
+			
+			<p:panel id="analysisCases" header="analysisCases">
+				<f:facet name="header">
+				    <span class="ico-panelheader ico-chart-bar" style="display:inline-block;" />
+				    <h:outputText value="Report 1" />
+				</f:facet>
+				<h:outputText value="analysisCases" />  
+			</p:panel>
+			<p:panel id="analysisSales" header="analysisSales">
+				<h:outputText value="analysisSales" />  
+			</p:panel>
+		</p:dashboard>
+	</ui:define>
+	
+</ui:composition>

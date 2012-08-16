@@ -1,0 +1,40 @@
+.ico-cz 			{ background-image: url(../resources/images/cz.png) !important; }
+.ico-en 			{ background-image: url(../resources/images/gb.png) !important; }
+
+.ico-home 			{ background-image: url('../resources/images/ico/house.png') !important; }
+.ico-accounts 		{ background-image: url(../resources/images/ico/building.png) !important; }
+.ico-contacts		{ background-image: url(../resources/images/ico/vcard.png) !important;  }
+.ico-businesscase	{ background-image: url(../resources/images/ico/briefcase.png) !important; }
+.ico-products		{ background-image: url(../resources/images/ico/book_open.png) !important; }
+.ico-pricelist		{ background-image: url(../resources/images/ico/money.png) !important;  }
+.ico-activities		{ background-image: url(../resources/images/ico/time.png) !important; }
+.ico-events			{ background-image: url(../resources/images/ico/date.png) !important; }
+.ico-tasks			{ background-image: url(../resources/images/ico/note.png) !important; }
+.ico-phone		 	{ background-image: url(../resources/images/ico/phone.png) !important; }
+.ico-chart-bar		{ background-image: url(../resources/images/ico/chart_bar.png) !important; }
+.ico-chart-curve	{ background-image: url(../resources/images/ico/chart_curve.png) !important; }
+
+.ico-help			{ background-image: url(../resources/images/ico/help.png) !important; }
+.ico-info			{ background-image: url(../resources/images/ico/information.png) !important; }
+.ico-tick			{ background-image: url(../resources/images/ico/tick.png) !important; }
+.ico-clock			{ background-image: url(../resources/images/ico/clock.png) !important; }
+.ico-settings		{ background-image: url(../resources/images/ico/cog.png) !important; }
+
+.ico-add			{ background-image: url(../resources/images/ico/help.png) !important; }
+.ico-delete			{ background-image: url(../resources/images/ico/information.png) !important; }
+.ico-accept			{ background-image: url(../resources/images/ico/information.png) !important; }
+.ico-cancel			{ background-image: url(../resources/images/ico/cancel.png) !important; }
+
+.ico-menuitem {
+	background-position: center 0 !important;
+    width: 25px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.ico-panelheader {
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+    margin-bottom: -4px;
+}
